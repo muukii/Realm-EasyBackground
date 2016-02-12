@@ -9,6 +9,22 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+```swift
+
+let realm = try! Realm()
+
+realm.writeBackground ({ realm in
+
+// Write on background thread
+
+}, 
+completion {
+
+// Callback on main thread
+})
+
+```
+
 ## Requirements
 
 ## Installation
