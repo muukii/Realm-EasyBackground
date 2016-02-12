@@ -9,11 +9,10 @@
 Pod::Spec.new do |s|
   s.name             = "Realm-EasyBackground"
   s.version          = "0.1.0"
-  s.summary          = "Extensions for Realm (To write in background thread easily.)"
+  s.summary          = "Extensions for Realm"
 
   s.description      = <<-DESC
                        Extensions for Realm (To write in background thread easily.)
-
                        DESC
 
   s.homepage         = "https://github.com/muukii/Realm-EasyBackground"
