@@ -1,0 +1,22 @@
+PODS:
+  - Realm (0.98.1):
+    - Realm/Headers (= 0.98.1)
+  - Realm-EasyBackground (0.1.0):
+    - RealmSwift (~> 0.98.0)
+  - Realm/Headers (0.98.1)
+  - RealmSwift (0.98.1):
+    - Realm (= 0.98.1)
+
+DEPENDENCIES:
+  - Realm-EasyBackground (from `../`)
+
+EXTERNAL SOURCES:
+  Realm-EasyBackground:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Realm: ca4a4122e939e228e10694fc49011386cb2ecb07
+  Realm-EasyBackground: 739afb0acc67627bcad0a65f79d758b7b68e6ba9
+  RealmSwift: 7d3c7033427816a2c3417ba0d004d694987e503a
+
+COCOAPODS: 0.39.0

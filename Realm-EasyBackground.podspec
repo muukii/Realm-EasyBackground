@@ -9,22 +9,18 @@
 Pod::Spec.new do |s|
   s.name             = "Realm-EasyBackground"
   s.version          = "0.1.0"
-  s.summary          = "A short description of Realm-EasyBackground."
+  s.summary          = "Extensions for Realm (To write in background thread easily.)"
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+                       Extensions for Realm (To write in background thread easily.)
+
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/Realm-EasyBackground"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/muukii/Realm-EasyBackground"
   s.license          = 'MIT'
   s.author           = { "muukii" => "m@muukii.me" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/Realm-EasyBackground.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/muukii/Realm-EasyBackground.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/muukii0803'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -33,8 +29,5 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'Realm-EasyBackground' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'RealmSwift', '~> 0.98.0'
 end

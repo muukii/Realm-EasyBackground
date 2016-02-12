@@ -1,0 +1,6 @@
+framework module Realm_EasyBackground {
+  umbrella header "Realm-EasyBackground-umbrella.h"
+
+  export *
+  module * { export * }
+}
