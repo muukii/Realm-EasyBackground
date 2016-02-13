@@ -26,7 +26,7 @@ extension Realm {
         }
     }
     
-    public func writeBackground(block: (store: Realm) -> Void, completion: () -> Void) {
+    public func writeBackground(block: (store: Realm) -> Void, completion: ErrorType? -> Void = { _ in }) {
         
         self.queue.addOperationWithBlock {
             autoreleasepool {
@@ -35,12 +35,14 @@ extension Realm {
                     try realm.write {
                         block(store: realm)
                     }
+                    NSOperationQueue.mainQueue().addOperationWithBlock {
+                        completion(nil)
+                    }
                 } catch {
-                    // FIXME: Error Handling
-                }
-                NSOperationQueue.mainQueue().addOperationWithBlock {
-                    completion()
-                }
+                    NSOperationQueue.mainQueue().addOperationWithBlock {
+                        completion(error)
+                    }
+                }                
             }
         }
     }
