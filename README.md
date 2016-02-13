@@ -18,7 +18,7 @@ realm.writeBackground ({ realm in
 // Write on background thread
 
 }, 
-completion {
+completion { (error: ErrorType?) in
 
 // Callback on main thread
 })
