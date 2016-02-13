@@ -23,20 +23,33 @@ extension Realm {
         }
         set {
             objc_setAssociatedObject(self, &StoredPropaties.queue, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-        }
+        }        
     }
     
-    public func writeBackground(block: (store: Realm) -> Void, completion: ErrorType? -> Void = { _ in }) {
+    public func writeBackground(block: (Realm throws -> Void)) {
+        self.writeBackground(block, completion: { _ in })
+    }
+    
+    public func writeBackground(block: (Realm throws -> Void), completion: (ErrorType? -> Void)) {
         
         self.queue.addOperationWithBlock {
             autoreleasepool {
                 do {
                     let realm = try Realm(configuration: self.configuration)
-                    try realm.write {
-                        block(store: realm)
-                    }
-                    NSOperationQueue.mainQueue().addOperationWithBlock {
-                        completion(nil)
+                    realm.beginWrite()
+                    
+                    do {
+                        try block(realm)
+                        try realm.commitWrite()
+                        
+                        NSOperationQueue.mainQueue().addOperationWithBlock {
+                            completion(nil)
+                        }
+                    } catch {
+                        realm.cancelWrite()
+                        NSOperationQueue.mainQueue().addOperationWithBlock {
+                            completion(error)
+                        }
                     }
                 } catch {
                     NSOperationQueue.mainQueue().addOperationWithBlock {
