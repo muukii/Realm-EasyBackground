@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Realm-EasyBackground"
-  s.version          = "0.3.0"
+  s.version          = "0.3.1"
   s.summary          = "Extensions for Realm"
 
   s.description      = <<-DESC
