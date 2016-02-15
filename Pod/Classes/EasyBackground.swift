@@ -13,7 +13,7 @@ extension Realm {
     
     public var queue: NSOperationQueue {
         get {
-            if let queue = objc_getAssociatedObject(self, &StoredPropaties.queue) as? NSOperationQueue {
+            if let queue = objc_getAssociatedObject(self, &StoredProperties.queue) as? NSOperationQueue {
                 return queue
             }
             
@@ -22,7 +22,7 @@ extension Realm {
             return queue
         }
         set {
-            objc_setAssociatedObject(self, &StoredPropaties.queue, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &StoredProperties.queue, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }        
     }
     
@@ -60,7 +60,7 @@ extension Realm {
         }
     }
     
-    private enum StoredPropaties {
+    private enum StoredProperties {
         static var queue: Void?
     }
     
