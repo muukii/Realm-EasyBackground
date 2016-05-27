@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Realm-EasyBackground"
-  s.version          = "0.4.0"
+  s.version          = "0.5.0"
   s.summary          = "Extensions for Realm"
 
   s.description      = <<-DESC
@@ -28,5 +28,5 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'Realm-EasyBackground' => ['Pod/Assets/*.png']
   }
-  s.dependency 'RealmSwift', '~> 0.100.0'
+  s.dependency 'RealmSwift', '~> 1.0'
 end
